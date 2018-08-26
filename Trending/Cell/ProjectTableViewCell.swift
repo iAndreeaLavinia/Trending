@@ -20,7 +20,7 @@ class ProjectTableViewCell: UITableViewCell {
     
     func configureCell(for project: Project) {
         nameLabel?.text = project.name
-//        starsLabel?.text = String(project.stars)
+        starsLabel?.text = String(project.startsCount)
         descriptionLabel?.text = project.description
     }
 

@@ -14,14 +14,15 @@ public typealias JSONType = [String: Any]
  Constants for dictionary keys
  */
 fileprivate struct ModelConstants {
-    static let name = "full_name"
+    static let name = "name"
     static let user = "owner"
     static let description = "description"
+    static let startsCount = "stargazers_count"
 }
 
 struct Project {
     let name: String
-//    let stars: Int
+    let startsCount: Double
     let description: String?
     var user: User?
     
@@ -33,6 +34,7 @@ struct Project {
         }
         
         self.name = name
+        self.startsCount = data[ModelConstants.startsCount] as? Double ?? 0
         self.description = data[ModelConstants.description] as? String
         self.user = User(withData: owner)
     }

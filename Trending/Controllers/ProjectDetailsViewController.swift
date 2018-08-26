@@ -13,6 +13,7 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var projectDescriptionLabel: UILabel!
     
     var viewModel: ProjectDetailsViewModel?
     
@@ -22,10 +23,14 @@ class ProjectDetailsViewController: UIViewController {
     }
     
     func configureView() {
+        self.title = viewModel?.project?.name
+        
         userNameLabel.text = viewModel?.project?.user?.name ?? ""
         if let imageURL = URL(string: viewModel?.project?.user?.avatarURL ?? "") {
             userImageView.load(url: imageURL)
         }
+        projectDescriptionLabel.text = viewModel?.project?.description ?? ""
+//        print(viewModel?.project?.startsCount)
     }
 
 }

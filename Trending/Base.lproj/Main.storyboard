@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-Kj-ynM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="144.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="bFq-y4-wA8">
                                         <rect key="frame" x="157.5" y="0.0" width="60" height="60"/>
@@ -136,16 +136,24 @@
                                         <color key="textColor" red="0.99901753664016724" green="0.2605612576007843" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{description}" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQu-nA-slo">
+                                        <rect key="frame" x="16" y="124" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.51377522949999999" green="0.5052769184" blue="0.53834432359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qcx-r6-02w" secondAttribute="trailing" constant="16" id="iUK-X9-CWu"/>
+                                    <constraint firstItem="WQu-nA-slo" firstAttribute="leading" secondItem="Lgv-Kj-ynM" secondAttribute="leading" constant="16" id="msr-Ef-Yzr"/>
                                     <constraint firstItem="qcx-r6-02w" firstAttribute="leading" secondItem="Lgv-Kj-ynM" secondAttribute="leading" constant="16" id="pRw-Qw-aP6"/>
+                                    <constraint firstAttribute="trailing" secondItem="WQu-nA-slo" secondAttribute="trailing" constant="16" id="vWf-ry-YyW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Lgv-Kj-ynM" firstAttribute="top" secondItem="T7x-KW-jFn" secondAttribute="top" id="4jx-46-XM4"/>
+                            <constraint firstItem="Lgv-Kj-ynM" firstAttribute="top" secondItem="CCk-pG-5zh" secondAttribute="top" constant="20" id="4jx-46-XM4"/>
                             <constraint firstAttribute="trailing" secondItem="Lgv-Kj-ynM" secondAttribute="trailing" id="VK3-gd-avs"/>
                             <constraint firstItem="Lgv-Kj-ynM" firstAttribute="leading" secondItem="CCk-pG-5zh" secondAttribute="leading" id="aGr-la-MbX"/>
                         </constraints>
@@ -153,6 +161,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="projectDescriptionLabel" destination="WQu-nA-slo" id="ce0-Fz-WBP"/>
                         <outlet property="stackView" destination="Lgv-Kj-ynM" id="WU9-kk-gjl"/>
                         <outlet property="userImageView" destination="bFq-y4-wA8" id="0Cj-wu-oeH"/>
                         <outlet property="userNameLabel" destination="qcx-r6-02w" id="8of-y1-6Iq"/>
