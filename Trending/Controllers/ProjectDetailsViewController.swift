@@ -20,6 +20,9 @@ class ProjectDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        viewModel?.getProjectDetails(completion: { (_) in
+            self.configureView()
+        })
     }
     
     func configureView() {
@@ -30,8 +33,8 @@ class ProjectDetailsViewController: UIViewController {
             userImageView.load(url: imageURL)
         }
         projectDescriptionLabel.text = viewModel?.project?.description ?? ""
-//        print(viewModel?.project?.startsCount ?? "")
-//        print(viewModel?.project?.forksCount ?? "")
+        print(viewModel?.project?.startsCount ?? "")
+        print(viewModel?.project?.forksCount ?? "")
     }
 
 }

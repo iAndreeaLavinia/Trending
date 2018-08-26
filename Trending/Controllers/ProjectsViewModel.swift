@@ -30,9 +30,9 @@ class ProjectsViewModel {
     var searchedText: String?
     
     func getProjects(completion: @escaping (Bool) -> Void) {
-        Network.fetchData { (projetList) in
-            self.rawProjects = projetList
-            completion(projetList != nil)
+        Network.fetchData { (projectList) in
+            self.rawProjects = projectList
+            completion(projectList != nil)
         }
     }
     

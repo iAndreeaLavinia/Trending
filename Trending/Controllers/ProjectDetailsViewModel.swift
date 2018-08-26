@@ -10,4 +10,16 @@ import UIKit
 
 class ProjectDetailsViewModel: NSObject {
     var project: Project?
+
+    func getProjectDetails(completion: @escaping (Bool) -> Void) {
+        guard let url = project?.detailsURL else {
+            completion(false)
+            return
+        }
+        
+        Network.getProjectDetails(for: url) { (project) in
+            self.project = project
+            completion(project != nil)
+        }
+    }
 }

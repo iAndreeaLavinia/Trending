@@ -19,14 +19,16 @@ fileprivate struct ModelConstants {
     static let description = "description"
     static let startsCount = "stargazers_count"
     static let forksCount = "forks_count"
+    static let detailsURL = "url"
 }
 
 struct Project {
     let name: String
-    let startsCount: Double?
-    let forksCount: Double?
+    let startsCount: Int?
+    let forksCount: Int?
     let description: String?
     var user: User?
+    let detailsURL: String?
     
     init?(withData data: JSONType) {
         // required values
@@ -36,11 +38,12 @@ struct Project {
         }
         
         self.name = name
-        self.startsCount = data[ModelConstants.startsCount] as? Double
-        self.forksCount = data[ModelConstants.forksCount] as? Double
+        self.startsCount = data[ModelConstants.startsCount] as? Int
+        self.forksCount = data[ModelConstants.forksCount] as? Int
 
         self.description = data[ModelConstants.description] as? String
         self.user = User(withData: owner)
+        self.detailsURL = data[ModelConstants.detailsURL] as? String
     }
 
 }

@@ -25,7 +25,7 @@ struct Network {
                 }
                 
                 guard let projects = response.result.value as? [[String:Any]] else {
-                        print("Malformed data received from fetchAllNews service")
+                        print("Malformed data received from get projects list service")
                         completionHandler(nil)
                         return
                 }
@@ -36,9 +36,31 @@ struct Network {
                 
                 completionHandler(allProjects)
         }
-        
-        
-        
+    }
+    
+    static func getProjectDetails(for projectURL: String,
+                                  completionHandler: @escaping (Project?)-> Void) {
+        Alamofire.request(
+            projectURL,
+            method: .get,
+            parameters: nil)
+            .validate()
+            .responseJSON { (response) -> Void in
+                guard response.result.isSuccess else {
+                    completionHandler(nil)
+                    return
+                }
+                
+                guard let project = response.result.value as? [String:Any] else {
+                    print("Malformed data received from get project details service")
+                    completionHandler(nil)
+                    return
+                }
+                
+                let projectObj = Project(withData: project)
+                
+                completionHandler(projectObj)
+        }
     }
 }
 
