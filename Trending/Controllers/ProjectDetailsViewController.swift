@@ -30,7 +30,8 @@ class ProjectDetailsViewController: UIViewController {
             userImageView.load(url: imageURL)
         }
         projectDescriptionLabel.text = viewModel?.project?.description ?? ""
-//        print(viewModel?.project?.startsCount)
+//        print(viewModel?.project?.startsCount ?? "")
+//        print(viewModel?.project?.forksCount ?? "")
     }
 
 }

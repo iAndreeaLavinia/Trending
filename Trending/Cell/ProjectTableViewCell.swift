@@ -20,7 +20,11 @@ class ProjectTableViewCell: UITableViewCell {
     
     func configureCell(for project: Project) {
         nameLabel?.text = project.name
-        starsLabel?.text = String(project.startsCount)
+        if let stars = project.startsCount {
+            starsLabel?.text = String(stars)
+        } else {
+            starsLabel?.text = nil
+        }
         descriptionLabel?.text = project.description
     }
 

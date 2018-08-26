@@ -18,11 +18,13 @@ fileprivate struct ModelConstants {
     static let user = "owner"
     static let description = "description"
     static let startsCount = "stargazers_count"
+    static let forksCount = "forks_count"
 }
 
 struct Project {
     let name: String
-    let startsCount: Double
+    let startsCount: Double?
+    let forksCount: Double?
     let description: String?
     var user: User?
     
@@ -34,7 +36,9 @@ struct Project {
         }
         
         self.name = name
-        self.startsCount = data[ModelConstants.startsCount] as? Double ?? 0
+        self.startsCount = data[ModelConstants.startsCount] as? Double
+        self.forksCount = data[ModelConstants.forksCount] as? Double
+
         self.description = data[ModelConstants.description] as? String
         self.user = User(withData: owner)
     }
