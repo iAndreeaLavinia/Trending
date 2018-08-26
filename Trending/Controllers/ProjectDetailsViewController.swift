@@ -14,9 +14,18 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    var viewModel: ProjectDetailsViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureView()
+    }
+    
+    func configureView() {
+        userNameLabel.text = viewModel?.project?.user?.name ?? ""
+        if let imageURL = URL(string: viewModel?.project?.user?.avatarURL ?? "") {
+            userImageView.load(url: imageURL)
+        }
     }
 
 }
