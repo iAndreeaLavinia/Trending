@@ -47,7 +47,7 @@ class ProjectDetailsViewController: UIViewController {
             statusIsHidden = false
         }
         
-        if let forks = viewModel?.project?.startsCount {
+        if let forks = viewModel?.project?.forksCount {
             forksLabel.text = String(forks) + " Forks"
             statusIsHidden = false
         }
