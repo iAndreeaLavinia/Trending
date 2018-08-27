@@ -65,6 +65,7 @@ class ProjectDetailsViewController: UIViewController, WKNavigationDelegate {
             let url = URL(string: readMe.htmlURL!)!
             webview.load(URLRequest(url: url))
             webview.allowsBackForwardNavigationGestures = true
+            readmeLabel.text = readMe.name
         } else {
             readmeStackView.isHidden = true
         }
