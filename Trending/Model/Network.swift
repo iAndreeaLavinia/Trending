@@ -62,5 +62,32 @@ struct Network {
                 completionHandler(projectObj)
         }
     }
+    
+    static func getReadme(for project: Project,
+                          completionHandler: @escaping (Readme?)-> Void) {
+        let urlString = String(format: "https://api.github.com/repos/%@/readme", project.fullName)
+        
+        Alamofire.request(
+            urlString,
+            method: .get,
+            parameters: nil)
+            .validate()
+            .responseJSON { (response) -> Void in
+                guard response.result.isSuccess else {
+                    completionHandler(nil)
+                    return
+                }
+                
+                guard let project = response.result.value as? [String:Any] else {
+                    print("Malformed data received from get project details service")
+                    completionHandler(nil)
+                    return
+                }
+                
+                let projectObj = Readme(withData: project)
+                
+                completionHandler(projectObj)
+        }
+    }
 }
 

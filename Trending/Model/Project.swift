@@ -15,6 +15,7 @@ public typealias JSONType = [String: Any]
  */
 fileprivate struct ModelConstants {
     static let name = "name"
+    static let fullName = "full_name"
     static let user = "owner"
     static let description = "description"
     static let startsCount = "stargazers_count"
@@ -29,15 +30,20 @@ struct Project {
     let description: String?
     var user: User?
     let detailsURL: String?
+    let fullName: String
+    
+    var readme: Readme?
     
     init?(withData data: JSONType) {
         // required values
         guard let name = data[ModelConstants.name] as? String,
+            let fullName = data[ModelConstants.fullName] as? String,
               let owner = data[ModelConstants.user] as? JSONType else {
                 return nil
         }
         
         self.name = name
+        self.fullName = fullName
         self.startsCount = data[ModelConstants.startsCount] as? Int
         self.forksCount = data[ModelConstants.forksCount] as? Int
 

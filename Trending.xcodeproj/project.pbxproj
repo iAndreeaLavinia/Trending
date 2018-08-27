@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46056817213464830004A46E /* Readme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46056816213464830004A46E /* Readme.swift */; };
 		B1C894D92131E4E0005B0B64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C894D82131E4E0005B0B64 /* AppDelegate.swift */; };
 		B1C894DB2131E4E0005B0B64 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C894DA2131E4E0005B0B64 /* ProjectsViewController.swift */; };
 		B1C894DE2131E4E0005B0B64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C894DC2131E4E0005B0B64 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46056816213464830004A46E /* Readme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readme.swift; sourceTree = "<group>"; };
 		B1C894D52131E4E0005B0B64 /* Trending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C894D82131E4E0005B0B64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1C894DA2131E4E0005B0B64 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				B1E2B002213350D400603306 /* Utils.swift */,
 				B1C8950F2131F72E005B0B64 /* Project.swift */,
 				B1C895112131F77D005B0B64 /* User.swift */,
+				46056816213464830004A46E /* Readme.swift */,
 				B1E2AFFB2133391700603306 /* GraphQL */,
 			);
 			path = Model;
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1C8950D2131F661005B0B64 /* ProjectsViewModel.swift in Sources */,
+				46056817213464830004A46E /* Readme.swift in Sources */,
 				B1C894DB2131E4E0005B0B64 /* ProjectsViewController.swift in Sources */,
 				B1C8950B2131F240005B0B64 /* ProjectDetailsViewController.swift in Sources */,
 				B1C895082131F1BA005B0B64 /* ProjectTableViewCell.swift in Sources */,

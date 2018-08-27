@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class ProjectDetailsViewController: UIViewController {
+class ProjectDetailsViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -18,6 +19,11 @@ class ProjectDetailsViewController: UIViewController {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var forksLabel: UILabel!
+    
+    @IBOutlet weak var readmeLabel: UILabel!
+    @IBOutlet weak var webview: WKWebView!
+    @IBOutlet weak var readmeStackView: UIStackView!
+    
     
     var viewModel: ProjectDetailsViewModel?
     
@@ -52,6 +58,16 @@ class ProjectDetailsViewController: UIViewController {
             statusIsHidden = false
         }
         statusView.isHidden = statusIsHidden
+        
+        if let readMe = viewModel?.project?.readme {
+            readmeStackView.isHidden = false
+
+            let url = URL(string: readMe.htmlURL!)!
+            webview.load(URLRequest(url: url))
+            webview.allowsBackForwardNavigationGestures = true
+        } else {
+            readmeStackView.isHidden = true
+        }
     }
 
 }

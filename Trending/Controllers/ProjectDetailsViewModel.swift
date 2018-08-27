@@ -19,7 +19,21 @@ class ProjectDetailsViewModel: NSObject {
         
         Network.getProjectDetails(for: url) { (project) in
             self.project = project
-            completion(project != nil)
+            self.getReadMe(completion: { _ in
+                completion(project != nil)
+            })
         }
+    }
+    
+    func getReadMe(completion: @escaping (Bool) -> Void) {
+        guard let project = self.project else {
+            completion(false)
+            return
+        }
+        Network.getReadme(for: project,
+                          completionHandler: { (readme) in
+                            self.project?.readme = readme
+                            completion(readme != nil)
+        })
     }
 }
